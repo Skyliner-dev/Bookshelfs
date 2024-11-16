@@ -59,6 +59,7 @@ Column {
 ```
 
 A ViewModel is designed to be a No-Parameter class, thus to use our repository as a parameter we need a viewModel Factory which is a companion object (dont need to instantiate to access this (similar to java static))
+
 In viewModel: (there is only one in this app)
  ```
 companion object {
@@ -72,6 +73,7 @@ companion object {
     }
  ``` 
  here BookApplication is needed to add our appContainer to the application by including it when overriding onCreate Method:
+
  In BookApplication.kt:
 ```
 class BookApplication: Application() {
@@ -83,6 +85,7 @@ class BookApplication: Application() {
 }
 ```
 Dont forget to add this in android manifest xml file inside application tag `android:name=".BookApplication"`
+
 Container in our application as its name suggests acts as the container which gives the dependencies needed throughout the app, Here we initialise retrofit service and NetworkBookRepository (this is exactly what is passed into our viewModel)
 by this we are implementing **dependency injection** (means instead of initialising directly into where its used we loosely couple it and pass as an parameter instead)
 
